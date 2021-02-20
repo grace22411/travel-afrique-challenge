@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* just so we maintain a steady width */
+    max-width: 1400px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .backgroundFix {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .background {
+    /* dim all images by default to 
+      support more of "Dark Mode" feel :) */
+    filter: brightness(60%);
+  }
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    transition: 0.5s all ease;
+  }
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+  .container2 {
+    width: 80%;
+    margin: auto;
+  }

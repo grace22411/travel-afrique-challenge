@@ -1,19 +1,18 @@
-import React from "react";
-import CreateGallery from "./pages/CreateGallery";
-import {BrowserRouter as Router ,Switch , Route} from "react-router-dom"
-
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import "./styles/global.css";
+import { Home } from "./pages/Home";
+import { ImageOverview } from "./pages/ImageOverview";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Router>
-            <Switch>
-                <Route path="/"  exact component={CreateGallery} />
-                {/* <Route path="/course"  component={Courses} /> */}
-            </Switch>
-        
-        </Router>
-    </>
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/image/:id" exact component={ImageOverview}></Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
