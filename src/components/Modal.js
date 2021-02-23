@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Modal, Button } from 'antd';
 import $ from "jquery";
-import "../styles/home.css";
+import "../styles/gallery.css";
 import { imagesData } from "../data";
-import Header from "../components/Header";
-import Modal from "antd/lib/modal/Modal";
-import ModalGallery from "../components/Modal";
+import {Link} from "react-router-dom"
 
-export const Home = () => {
+const ModalGallery = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const [selectedImage, setSelectedImage] = React.useState("");
 
   console.log(selectedImage);
@@ -64,29 +77,27 @@ export const Home = () => {
   const Images = ({ data }) => {
     const { src, desc, title, id } = data;
     return (
-      <div onClick={() => showImg(data)}>
-        <div
-          title={title}
-          style={{ backgroundImage: `url(${src})` }}
-          className="thumbnail "
-        >
-          {/* <img alt={title} src={src} /> */}
-        <ModalGallery />
+      <div onClick={() => showImg(data)} className="col-md-4">
+        <div title={title} className="thumbnail ">
+          <img alt={title} src={src} />
         </div>
       </div>
     );
   };
+
   return (
-    <div>
-      <Header />
+    <>
+      <button className="seePhoto" onClick={showModal}>
+      <i class="far fa-images"></i> Show all Photos
+      </button>
+      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
       <div id="showHide" className="imageOverlay">
         <button onClick={() => $("#showHide").fadeOut()} id="closeBtn">
           Close
         </button>
-        {/* <button>
+        <button>
           <i class="far fa-images"></i> See all Photos
-        </button> */}
-        <ModalGallery />
+        </button>
         <i
           onClick={() => move("prev")}
           id="left"
@@ -103,74 +114,22 @@ export const Home = () => {
           <p style={{ color: "#fff" }}>{imagesData.title}</p>
         </div>
       </div>
-      <div className="homeWrapper">
-        <div className="lightImage">
-          <Images data={imagesData[0]} />
 
-          <div className="coverRight">
-            <Images data={imagesData[1]} />
-            <Images data={imagesData[2]} />
-          </div>
+      <div className="head">
+          <a href="/"><button>Close</button></a>
+      </div>
+      <div className="container">
+        <div className="row">
+            {imagesData.map((image) => (
+            <Images data={image} />
+          ))}
+          
+         
         </div>
       </div>
-    </div>
+      </Modal>
+    </>
   );
 };
 
-// import React from "react";
-// import "../styles/home.css";
-// import { Link } from "react-router-dom";
-// import { imagesData } from "../data";
-// import Header from "../components/Header";
-
-// const Grid1 = ({ data: { src, desc, title, id } }) => {
-//   return (
-//     <div className="cover">
-//       <div
-//         style={{ backgroundImage: `url(${src})` }}
-//         className="backgroundFix background"
-//       >
-//         <Link to="/light-box" ><button>Show all photos
-//         </button></Link>
-//       </div>
-//       <Link to={`/image/${id}`} className="overlay centered">
-//         <div>
-//           <h3>{title}</h3>
-//           <p>{desc}</p>
-//         </div>
-//       </Link>
-//     </div>
-//   );
-// };
-// const Grid2 = ({ data: { src, desc, title, id } }) => {
-//   return (
-//     <div className="cover">
-//       <div
-//         style={{ backgroundImage: `url(${src})` }}
-//         className="backgroundFix background"
-//       ></div>
-//       <Link to={`/image/${id}`} className="overlay centered">
-//         <div>
-//           <h3>{title}</h3>
-//           <p>{desc}</p>
-//         </div>
-//       </Link>
-//     </div>
-//   );
-// };
-// export const Home = () => {
-//   return (
-//     <>
-//     <Header />
-//     <div className="homeWrapper container">
-//       <div className="lightImage">
-//         <Grid1 data={imagesData[0]} />
-//         <div className="coverRight">
-//           <Grid2 data={imagesData[1]} />
-//           <Grid2 data={imagesData[2]} />
-//         </div>
-//       </div>
-//     </div>
-//     </>
-//   );
-// };
+export default ModalGallery

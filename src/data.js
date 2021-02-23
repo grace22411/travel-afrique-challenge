@@ -1,6 +1,6 @@
 export const imagesData = [
     {
-      src: "/images/breeze.jpg",
+        src: "/images/shark.jpg",
       title: "Our God is Great",
       id: 0,
     },

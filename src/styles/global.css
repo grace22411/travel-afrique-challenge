@@ -15,11 +15,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
   }
-  .background {
-    /* dim all images by default to 
-      support more of "Dark Mode" feel :) */
-    filter: brightness(60%);
-  }
+  
   .centered {
     display: flex;
     justify-content: center;
