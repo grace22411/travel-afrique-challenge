@@ -77,10 +77,13 @@ const ModalGallery = () => {
   const Images = ({ data }) => {
     const { src, desc, title, id } = data;
     return (
-      <div onClick={() => showImg(data)} className="col-md-4">
-        <div title={title} className="thumbnail ">
-          <img alt={title} src={src} />
-        </div>
+      <div  className="col-md-4">
+       <div onClick={() => showImg(data)}
+          title={title}
+          style={{ backgroundImage: `url(${src})` }}
+          className="thumbnail "
+        >
+          </div>
       </div>
     );
   };

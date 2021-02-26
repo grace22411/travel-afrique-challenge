@@ -18,9 +18,11 @@
   margin: 40px 0 20px 10px;
 }
 
+
 .ant-modal-body {
   background-color: #1c2733 !important;
   padding:0 !important;
+  margin-bottom: 50px;;
 }
 .ant-modal-footer,
 .ant-modal-close {
@@ -28,8 +30,12 @@
 }
 
 .col-md-4{
-  margin-top:20px;
+  margin-bottom:30px;
   column-gap: 10px;;
+}
+.col-md-4 .thumbnail{
+  height:300px;
+  border-radius: 0;
 }
 
 .head{
@@ -37,6 +43,7 @@
   height:50px;
   background-color:#fff;
   padding:10px 70px;
+  margin-bottom: 30px;
 }
 button{
     font-size: 15px;width:8%;
