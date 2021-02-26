@@ -64,14 +64,17 @@ export const Home = () => {
   const Images = ({ data }) => {
     const { src, desc, title, id } = data;
     return (
-      <div onClick={() => showImg(data)}>
-        <div
+      <div >
+        <div onClick={() => showImg(data)}
           title={title}
           style={{ backgroundImage: `url(${src})` }}
           className="thumbnail "
         >
           {/* <img alt={title} src={src} /> */}
-        <ModalGallery />
+          <div className="button-gallery">
+          <ModalGallery />
+          </div>
+        
         </div>
       </div>
     );

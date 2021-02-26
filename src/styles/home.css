@@ -36,12 +36,30 @@ hr {
       width:100%;
       background-size: cover;
       border-radius: 6px;;
+      z-index: -9999;
+      
+      cursor: pointer;
   }
   .thumbnail:first-child{
       height: 100%;
       background-position:center;
   }
-  
+  .coverRight div .thumbnail > div{
+    display: none;
+  }
+   .button-gallery{
+     /* border:1px solid red;
+     background-color: red;; */
+     z-index: -9999;
+     padding-left:20px;
+     padding-bottom: 20px;;
+     display: flex;
+     height: 100%;;
+     align-items: flex-end;
+     bottom: 0;;
+     left:0;
+    filter: grayscale(0.1);
+   }
   
   .homeWrapper .coverRight {
     display: grid;
